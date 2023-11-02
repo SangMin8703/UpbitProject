@@ -5,7 +5,7 @@ import requests
 import uuid
 from urllib.parse import urlencode, unquote
 
-access_key = os.environ['']
+access_key = "HonSESgy9OMkRojjntP6AunVk1ZlA10i0J4tHuJN"
 secret_key = "YRhveqMv7Hp9GokSXExQwHYlKFkSrDLLFdgx8DSI"
 server_url = "https://api.upbit.com"
 
@@ -22,5 +22,8 @@ headers = {
     "accept": "application/json"
 }
 
-res = requests.get(server_url + '/v1/api_keys', headers=headers)
-print(res)
+resAPIKeys = requests.get(server_url + '/v1/api_keys', headers=headers)
+resWallet = requests.get(server_url + '/v1/status/wallet', headers=headers)
+
+print(resWallet.json())
+print(resAPIKeys.json())
